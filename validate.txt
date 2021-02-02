@@ -1,0 +1,29 @@
+  // your code to perform when the user clicks on the button 
+            if (txtNum1.text.toString() == "" || txtNum2.text.toString() == "") {
+                if (txtNum1.text.toString() == ""){
+                    //added for messagebox
+                    hideKeyboard()
+                    Toast.makeText (this, "Enter in Number 1", Toast.LENGTH_LONG) .show ()
+                    //clear txtShow
+                    txtShow.text = ""
+                    //focus
+                    txtNum1.requestFocus()
+                }else{
+                    hideKeyboard()
+                    //added for messagebox
+                    Toast.makeText (this, "Enter in Number 2", Toast.LENGTH_LONG) .show ()
+                    //clear txtShow
+                    txtShow.text = ""
+                    //focus
+                    txtNum2.requestFocus()
+                }
+            }else{
+                val n1: Int = txtNum1.text.toString().toInt()
+                val n2: Int = txtNum2.text.toString().toInt()
+                val showcalc: Int = calculate(n1, n2)
+                txtShow.text = "The sum is ${showcalc}"
+                txtNum1.setText("")
+                txtNum2.setText("")
+                txtNum1.requestFocus()
+                hideKeyboard()
+            }
